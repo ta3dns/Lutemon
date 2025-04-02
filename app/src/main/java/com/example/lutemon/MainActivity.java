@@ -22,3 +22,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
+// Notebook (To Do And Features)
+
+// Lutémon Logo screen at the start
+//
