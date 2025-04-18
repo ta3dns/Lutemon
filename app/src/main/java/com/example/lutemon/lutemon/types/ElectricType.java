@@ -1,9 +1,13 @@
 package com.example.lutemon.lutemon.types;
 
+import com.example.lutemon.lutemon.Attack;
 import com.example.lutemon.lutemon.Lutemon;
 
-public interface ElectricType {
-    void staticCharge(Lutemon target);
+import java.util.List;
 
-    void lightningStorm(Lutemon target);
+public interface ElectricType {
+    void staticCharge();
+
+    void lightningStorm();
+
 }

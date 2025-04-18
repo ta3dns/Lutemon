@@ -1,5 +1,7 @@
 package com.example.lutemon.lutemon;
 
+import java.util.List;
+
 public abstract class Lutemon {
 
     protected int id;
@@ -9,9 +11,9 @@ public abstract class Lutemon {
     protected int hp;
     protected int maxHp;
     protected String description;
-
     protected Attack lastAttack;
     protected boolean dead;
+    protected List<Attack> attacks;
 
     public Lutemon(int id, String name, int level, int xp, int hp, int maxHp, String description) {
         this.id = id;
@@ -51,6 +53,14 @@ public abstract class Lutemon {
         return lastAttack;
     }
 
+    public boolean isDead() {
+        return dead;
+    }
+
+    public List<Attack> getAttacks() {
+        return attacks;
+    }
+
     // Setters
     public void setName(String name) {
         this.name = name;
@@ -74,8 +84,13 @@ public abstract class Lutemon {
         this.description = description;
     }
 
+
     public void setLastAttack(Attack lastAttack) {
         this.lastAttack = lastAttack;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
     }
 
     // performAttack

@@ -11,26 +11,26 @@ public class Electryon extends Lutemon implements ElectricType, SteelType {
     }
 
     @Override
-    public void ironBarrage(Lutemon target) {
+    public void ironBarrage() {
         Attack ironBarrageAttack = new Attack("Iron Barrage", 50, 0.7, 0.2, 1.5);
-        this.performAttack(target, ironBarrageAttack);
+        attacks.add(ironBarrageAttack);
     }
 
     @Override
-    public void steelFortress(Lutemon target) {
+    public void steelFortress() {
         Attack steelFortressAttack = new Attack("Steel Fortress", 20, 0.8, 0.1, 1.3);
-        this.performAttack(target, steelFortressAttack);
+        attacks.add(steelFortressAttack);
     }
 
     @Override
-    public void staticCharge(Lutemon target) {
+    public void staticCharge() {
         Attack staticChargeAttack = new Attack("Static Charge", 60, 0.7, 0.3, 1.6);
-        this.performAttack(target, staticChargeAttack);
+        attacks.add(staticChargeAttack);
     }
 
     @Override
-    public void lightningStorm(Lutemon target) {
+    public void lightningStorm() {
         Attack lightningStormAttack = new Attack("Lightning Storm", 40, 0.8, 0.2, 1.1);
-        this.performAttack(target, lightningStormAttack);
+        attacks.add(lightningStormAttack);
     }
 }

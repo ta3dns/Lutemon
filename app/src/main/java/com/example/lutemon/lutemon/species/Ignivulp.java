@@ -10,27 +10,26 @@ public class Ignivulp extends Lutemon implements FireType {
     }
 
     @Override
-    public void fireWall(Lutemon target) {
+    public void fireWall() {
         Attack fireWallAttack = new Attack("Fire Wall", 50, 0.7, 0.2, 1.5);
-        this.performAttack(target, fireWallAttack);
+        attacks.add(fireWallAttack);
     }
 
     @Override
-    public void flameThrower(Lutemon target) {
+    public void flameThrower() {
         Attack flameThrowerAttack = new Attack("Flame Thrower", 20, 0.8, 0.1, 1.3);
-        this.performAttack(target, flameThrowerAttack);
+        attacks.add(flameThrowerAttack);
     }
 
     @Override
-    public void inferno(Lutemon target) {
+    public void inferno() {
         Attack infernoAttack = new Attack("Inferno", 60, 0.7, 0.3, 1.6);
-        this.performAttack(target, infernoAttack);
-
+        attacks.add(infernoAttack);
     }
 
     @Override
-    public void fireBlast(Lutemon target) {
+    public void fireBlast() {
         Attack fireBlastAttack = new Attack("Fire Blast", 40, 0.8, 0.2, 1.1);
-        this.performAttack(target, fireBlastAttack);
+        attacks.add(fireBlastAttack);
     }
 }

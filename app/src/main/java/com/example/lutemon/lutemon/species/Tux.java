@@ -13,7 +13,6 @@ public class Tux extends Lutemon implements WaterType, IceType {
     @Override
     public void echo(Lutemon target) {
         // TUX can copy the last attack of its opponent.
-
         Attack lastAttack = target.getLastAttack();
 
         if (lastAttack != null) {
@@ -25,26 +24,28 @@ public class Tux extends Lutemon implements WaterType, IceType {
                                           lastAttack.getLevelMultiplier()
                                           );
             System.out.println(echoAttack.getName() + " Copied to TUX");
-
-            this.performAttack(target, echoAttack);
+            target.performAttack(target, echoAttack); // Echo attack is used a bit different because its attributes are always changing.
+            attacks.add(echoAttack);
         }
     }
 
     @Override
-    public void frostByte(Lutemon target) {
-        // TUX gives a precision burst of frost. (May be implemented as a data with all 0 s ???)
+    public void frostByte() {
+        Attack frostByteAttack = new Attack("Frost Byte", 40, 0.8, 0.3, 1.5);
+        attacks.add(frostByteAttack);
     }
 
     @Override
-    public void aquaJet(Lutemon target) {
+    public void aquaJet() {
         Attack aquaJetAttack = new Attack("Aqua Jet", 20, 0.9, 0.1, 1.2);
-        this.performAttack(target, aquaJetAttack);
+        attacks.add(aquaJetAttack);
     }
 
     @Override
-    public void hydroPump(Lutemon target) {
+    public void hydroPump() {
         Attack hydroPumpAttack = new Attack("Hydro Pump", 30, 0.7, 0.2, 1.25);
-        this.performAttack(target, hydroPumpAttack);
+        attacks.add(hydroPumpAttack);
+
     }
 
 }
