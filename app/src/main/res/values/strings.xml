@@ -1,10 +1,9 @@
 <resources>
-    <string name="app_name">lutemon</string>
+    <string name="battle_arena">Battle Arena</string>
+    <string name="training_arena">Training Arena</string>
+    <string name="arena_title">"Battle"</string>
 
-    <string name="attack_1">Attack 1</string>
-    <string name="attack_2">Attack 2</string>
-    <string name="attack_3">Attack 3</string>
-    <string name="attack_4">Attack 4</string>
-    <string name="give_up">Give Up</string>
+    <string name="lutemon_name">Lutémon Name</string>
 
 </resources>
+

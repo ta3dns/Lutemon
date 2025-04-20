@@ -1,8 +1,12 @@
 package com.example.lutemon.lutemon;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Lutemon {
+public abstract class Lutemon implements Serializable{
 
     protected int id;
     protected String name; // name in here is used as the species name
@@ -15,6 +19,10 @@ public abstract class Lutemon {
     protected boolean dead;
     protected List<Attack> attacks;
 
+    protected int imageSource;
+
+    protected boolean isSelected;
+
     public Lutemon(int id, String name, int level, int xp, int hp, int maxHp, String description) {
         this.id = id;
         this.name = name;
@@ -25,6 +33,7 @@ public abstract class Lutemon {
         this.maxHp = maxHp;
         this.description = description;
         this.dead = false;
+        this.attacks = new ArrayList<>();
     }
 
     // Getters
@@ -57,14 +66,35 @@ public abstract class Lutemon {
         return dead;
     }
 
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public int getImageSource() {
+        return imageSource;
+    }
+
+    public String getStats() {
+        return "Level: " + level + " XP: " + xp + " HP: " + maxHp;
+    }
+
     public List<Attack> getAttacks() {
         return attacks;
+    }
+
+    public Attack getAttack(int index) {
+        return attacks.get(index);
     }
 
     // Setters
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setSelected(boolean selected) {
+        this.isSelected = selected;
+    }
+
     public void setLevel(int level) {
         this.level = level;
     }
@@ -84,6 +114,10 @@ public abstract class Lutemon {
         this.description = description;
     }
 
+    public void setImageSource(int sourceId) {
+        this.imageSource = sourceId;
+    }
+
 
     public void setLastAttack(Attack lastAttack) {
         this.lastAttack = lastAttack;
@@ -99,11 +133,14 @@ public abstract class Lutemon {
         if (attack.isMissed(this)) {
             System.out.println(this.name + " missed " + target.name);
             if (Math.random() < 0.2) {
+                System.out.println("Critical hit!");
                 int damage = attack.calculateDamage(this);
+                System.out.println(this.name + " did " + damage + " damage to itself!");
                 this.setHp(this.getHp() - damage);
             } else {}// do nothing
         } else {
             int damage = attack.calculateDamage(this);
+            System.out.println(this.name + " did " + damage + " damage!");
             target.setHp(target.getHp() - damage);
         }
         this.setLastAttack(attack);

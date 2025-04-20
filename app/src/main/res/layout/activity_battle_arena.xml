@@ -1,67 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:background="#2F2F2F">
+
+    <Button
+        android:id="@+id/attack1"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/attack2"
+        android:layout_marginBottom="15dp"
+        android:text="Attack 1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/attack4"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/giveUp"
+        android:layout_marginBottom="30dp"
+        android:text="Attack 4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/attack3"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/attack4"
+        android:layout_marginBottom="15dp"
+        android:text="Attack 3"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/attack2"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/attack3"
+        android:layout_marginBottom="15dp"
+        android:text="Attack 2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
 
     <LinearLayout
+        android:id="@+id/ll_arena_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/iv_player_lutemon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/player_lutemon" />
-
-        <ImageView
-            android:id="@+id/iv_enemy_lutemon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/enemy_lutemon" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="#FFEB3B"
         android:gravity="center"
-        android:padding="16dp">
+        android:padding="6dp">
 
-        <Button
-            android:id="@+id/btn_attack1"
+        <TextView
+            android:id="@+id/tv_arena_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/attack_1" />
-
-        <Button
-            android:id="@+id/btn_attack2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/attack_2" />
-
-        <Button
-            android:id="@+id/btn_attack3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/attack_3" />
-
-        <Button
-            android:id="@+id/btn_attack4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/attack_4" />
-
-        <Button
-            android:id="@+id/btn_give_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/give_up" />
+            android:text="@string/arena_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
 
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_arena_background"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_above="@+id/lutemon_title"
+        android:layout_below="@+id/ll_arena_title"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/training_area_background"
+        />
+
+
+    <Button
+        android:id="@+id/giveUp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:text="Give Up"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/lutemon_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/attack1"
+        android:layout_marginBottom="0dp"
+        android:background="#FFEB3B"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+
+        <TextView
+            android:id="@+id/lt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lutemon_name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lt_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/giveUp"
+        android:layout_marginBottom="5dp"
+        android:background="#FFEB3B"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="11dp">
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

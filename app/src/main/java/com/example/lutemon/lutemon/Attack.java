@@ -1,6 +1,8 @@
 package com.example.lutemon.lutemon;
 
-public class Attack {
+import java.io.Serializable;
+
+public class Attack implements Serializable {
     private String name;
     private int baseDamage;
     private double accuracy;

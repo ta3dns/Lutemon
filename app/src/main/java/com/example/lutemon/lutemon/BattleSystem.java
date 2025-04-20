@@ -7,47 +7,66 @@ public class BattleSystem {
     private final Lutemon player;
     private final Lutemon cpu;
     private Random random;
-    private boolean isBattle;
+    public boolean isEnded;
+    private static boolean isBattle;
 
-    public BattleSystem(Lutemon player, Lutemon cpu) {
+
+    public BattleSystem(Lutemon player, Lutemon cpu, boolean isBattle) {
         this.player = player;
         this.cpu = cpu;
-        this.isBattle = true;
+        this.isEnded = true;
         this.random = new Random();
+        BattleSystem.isBattle = isBattle;
+    }
+
+    public static boolean isBattle() {
+        return isBattle;
+    }
+
+    public Lutemon getPlayer() {
+        return player;
+    }
+
+    public Lutemon getCpu() {
+        return cpu;
     }
 
     public void playerTurn(Attack selectedAttack) {
         player.performAttack(cpu, selectedAttack);
+
         checkBattleOutcome();
     }
 
-    public void cpuTurn(Attack selectedAttack) {
-        cpu.performAttack(player, selectedAttack);
+    public void cpuTurn() {
+        cpu.performAttack(player, decideAttack());
+        System.out.println(cpu.getName() + " attacks with " + cpu.getLastAttack().getName());
         checkBattleOutcome();
     }
 
     private Attack decideAttack(){
-        List<Attack> cpuAttacks = cpu.getAttacks();
+        System.out.println(cpu.getAttacks().size());
+        System.out.println(cpu.getAttacks());
+        System.out.println("Deciding Attack");
+        int randIndex = random.nextInt(cpu.getAttacks().size());
+        return cpu.getAttack(randIndex);
 
-        int randIndex = random.nextInt(cpuAttacks.size());
-        return cpuAttacks.get(randIndex);
     }
 
     private void checkBattleOutcome() {
         if (!player.isAlive()){
             System.out.println(cpu.getName() + " has won the battle!");
-            if (isBattle){
+            if (isEnded){
                 // Implement battle mechanics
                 player.setDead(true);
             }
-            isBattle = false;
+            isEnded = false;
         } else if (!cpu.isAlive()) {
             System.out.println(player.getName() + " has won the battle!");
-            if (isBattle){
+            if (isEnded){
                 // Implement battle mechanics
                 cpu.setDead(true);
             }
-            isBattle = false;
+            isEnded = false;
         } else {
             System.out.println("The battle continues...");
         }

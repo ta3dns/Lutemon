@@ -1,25 +1,98 @@
 package com.example.lutemon;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.lutemon.adapters.LutemonAdapter;
+import com.example.lutemon.adapters.LutemonDialog;
+import com.example.lutemon.lutemon.Lutemon;
+import com.example.lutemon.lutemon.LutemonManager;
+import com.example.lutemon.lutemon.species.Celestyne;
+import com.example.lutemon.lutemon.species.Dorikit;
+import com.example.lutemon.lutemon.species.Electryon;
+import com.example.lutemon.lutemon.species.Ignivulp;
+import com.example.lutemon.lutemon.species.Tux;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static List<Lutemon> lutemonList = new ArrayList<>();
+    public static boolean battleIs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        LutemonManager lutemonManager = new LutemonManager();
+
+        Button createButton = findViewById(R.id.btn_create);
+        createButton.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                LutemonDialog lutemonDialog = new LutemonDialog(MainActivity.this, lutemonManager);
+                                                lutemonDialog.show();
+                                            }
+                                        });
+
+                // Create a starter Lutémon for the player.
+                Lutemon igniVulp = new Ignivulp(01, "Ignivulp", 1, 0, 100, 100, "Starter Lutémon");
+
+
+        igniVulp.setImageSource(R.drawable.ignivulp_front);
+        ((Ignivulp) igniVulp).makeAttacks();
+        lutemonList.add(igniVulp);
+
+
+        // Find the RecyclerView using the correct ID
+        RecyclerView rvLutemonList = findViewById(R.id.rv_lutemon_list);
+        rvLutemonList.setLayoutManager(new LinearLayoutManager(this));
+        rvLutemonList.setAdapter(new LutemonAdapter(lutemonList));
+
+
+        Button battleButton = findViewById(R.id.btn_battle);
+        battleButton.setOnClickListener(v -> {
+            Lutemon selectedLutemon = LutemonAdapter.getSelectedLutemon();
+            if (selectedLutemon != null) {
+                battleIs = true;
+                Intent battleIntent = new Intent(MainActivity.this, BattleArenaActivity.class);
+                battleIntent.putExtra("selectedLutemon", selectedLutemon);
+
+                startActivity(battleIntent);
+            } else {
+                // Show a message that no Lutemon is selected
+                Toast.makeText(this, "Please select a Lutemon to battle/train!", Toast.LENGTH_SHORT).show();
+            }
         });
+
+        Button trainButton = findViewById(R.id.btn_train);
+        trainButton.setOnClickListener(v -> {
+            Lutemon selectedLutemon = LutemonAdapter.getSelectedLutemon();
+            if (selectedLutemon != null) {
+                battleIs = false;
+                Intent battleIntent = new Intent(MainActivity.this, BattleArenaActivity.class);
+                battleIntent.putExtra("selectedLutemon", selectedLutemon);
+
+                startActivity(battleIntent);
+            } else {
+                // Show a message that no Lutemon is selected
+                Toast.makeText(this, "Please select a Lutemon to battle/train!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
 
