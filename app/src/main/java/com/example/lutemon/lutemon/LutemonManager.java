@@ -28,11 +28,10 @@ public class LutemonManager {
     public Lutemon createCpuLutemon(){
         id++;
         Random random = new Random();
-        String name = "CPU_Lutemon_" + (cpuLutemons.size() + 1);
         int level = random.nextInt(5) + 1;
         int species = random.nextInt(5) + 1;
         if (species == 1) {
-            Lutemon cpuLutemon = new Ignivulp(id, name, level, 0, 100, 100, "CPU_FIGHTER");
+            Lutemon cpuLutemon = new Ignivulp(id, "Ignivulp", level, 0, 100, 100, "CPU_FIGHTER");
             ((Ignivulp) cpuLutemon).makeAttacks();
 
             cpuLutemons.add(cpuLutemon);
@@ -40,7 +39,7 @@ public class LutemonManager {
             return cpuLutemon;
 
         } else if (species == 2) {
-            Lutemon cpuLutemon = new Tux(id, name, level, 0, 100, 100, "CPU_FIGHTER");
+            Lutemon cpuLutemon = new Tux(id, "Tux", level, 0, 100, 100, "CPU_FIGHTER");
             ((Tux) cpuLutemon).makeAttacks();
 
             cpuLutemons.add(cpuLutemon);
@@ -48,7 +47,7 @@ public class LutemonManager {
             return cpuLutemon;
 
         } else if (species == 3) {
-            Lutemon cpuLutemon = new Dorikit(id, name, level, 0, 100, 100, "CPU_FIGHTER");
+            Lutemon cpuLutemon = new Dorikit(id, "Dorikit", level, 0, 100, 100, "CPU_FIGHTER");
             ((Dorikit) cpuLutemon).makeAttacks();
 
             cpuLutemons.add(cpuLutemon);
@@ -56,7 +55,7 @@ public class LutemonManager {
             return cpuLutemon;
 
         } else if (species == 4) {
-            Lutemon cpuLutemon = new Celestyne(id, name, level, 0, 100, 100, "CPU_FIGHTER");
+            Lutemon cpuLutemon = new Celestyne(id, "Celestyne", level, 0, 100, 100, "CPU_FIGHTER");
             ((Celestyne) cpuLutemon).makeAttacks();
 
             cpuLutemons.add(cpuLutemon);
@@ -64,7 +63,7 @@ public class LutemonManager {
             return cpuLutemon;
 
         } else {
-            Lutemon cpuLutemon = new Electryon(id, name, level, 0, 100, 100, "CPU_FIGHTER");
+            Lutemon cpuLutemon = new Electryon(id, "Electryon", level, 0, 100, 100, "CPU_FIGHTER");
             ((Electryon) cpuLutemon).makeAttacks();
             cpuLutemons.add(cpuLutemon);
             System.out.println("CPU = " + cpuLutemon.getName() + " " + cpuLutemon.getStats());

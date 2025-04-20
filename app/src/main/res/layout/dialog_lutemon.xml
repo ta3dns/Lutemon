@@ -9,28 +9,15 @@
     <Spinner
         android:id="@+id/lutemonTypeSpinner"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="50dp" />
 
 
     <EditText
         android:id="@+id/lutemonName"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:hint="Enter Lutemon Name" />
 
-    <EditText
-        android:id="@+id/lutemonLevel"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="Enter Lutemon Level"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/lutemonHealth"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="Enter Lutemon Health"
-        android:inputType="number" />
 
     <Button
         android:id="@+id/createLutemonButton"

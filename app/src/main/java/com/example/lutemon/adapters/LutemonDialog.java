@@ -39,8 +39,7 @@ public class LutemonDialog extends Dialog {
 
         Spinner lutemonTypeSpinner = findViewById(R.id.lutemonTypeSpinner);
         EditText lutemonName = findViewById(R.id.lutemonName);
-        EditText lutemonLevel = findViewById(R.id.lutemonLevel);
-        EditText lutemonHealth = findViewById(R.id.lutemonHealth);
+
         Button createLutemonButton = findViewById(R.id.createLutemonButton);
 
         String[] lutemonTypes = {"Ignivulp", "Tux", "Dorikit", "Celestyne", "Electryon"};
@@ -58,8 +57,8 @@ public class LutemonDialog extends Dialog {
                 String type = lutemonTypeSpinner.getSelectedItem().toString();
 
                 try {
-                    level = Integer.parseInt(lutemonLevel.getText().toString());
-                    health = Integer.parseInt(lutemonHealth.getText().toString());
+                    level = 1;
+                    health = 100;
 
                     if (type.equals("Ignivulp")) {
                         id++;
@@ -104,7 +103,7 @@ public class LutemonDialog extends Dialog {
 
                     dismiss(); // Close the dialog
                 } catch (NumberFormatException e) {
-                    Toast.makeText(getContext(), "Please enter valid numbers for level and health.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please enter valid values", Toast.LENGTH_SHORT).show();
                 }
             }
         });

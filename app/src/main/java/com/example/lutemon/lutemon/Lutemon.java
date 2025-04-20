@@ -2,6 +2,8 @@ package com.example.lutemon.lutemon;
 
 import android.os.Parcelable;
 
+import com.example.lutemon.BattleArenaActivity;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -160,6 +162,7 @@ public abstract class Lutemon implements Serializable{
     public void levelUp() {
         this.level++;
         this.xp = 0;
+        this.maxHp = this.maxHp + 10*this.level;
     }
 
     public void gainXp(int amount) {
