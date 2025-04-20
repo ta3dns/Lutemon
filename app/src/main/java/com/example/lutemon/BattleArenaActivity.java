@@ -121,6 +121,8 @@ public class BattleArenaActivity extends AppCompatActivity {
             attackButton2.setOnClickListener(v -> handleAttack(1, battleSystem, selectedLutemon));
             attackButton3.setOnClickListener(v -> handleAttack(2, battleSystem, selectedLutemon));
             attackButton4.setOnClickListener(v -> handleAttack(3, battleSystem, selectedLutemon));
+            giveUpButton.setOnClickListener(v -> giveUp(battleSystem, selectedLutemon));
+
         }
     }
 
