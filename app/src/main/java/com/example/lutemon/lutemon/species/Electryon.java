@@ -10,6 +10,7 @@ public class Electryon extends Lutemon implements ElectricType, SteelType {
         super(id, name, level, xp, hp, maxHp, description);
     }
 
+    // overrites the electric and steel type methods
     @Override
     public void ironBarrage() {
         Attack ironBarrageAttack = new Attack("Iron Barrage", 5, 0.7, 0.2, 1.5);

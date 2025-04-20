@@ -10,4 +10,7 @@ public interface ElectricType {
 
     void lightningStorm();
 
+    // Interface methods for each attack
+
+
 }

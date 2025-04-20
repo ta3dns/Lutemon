@@ -16,6 +16,7 @@ public class Dorikit extends Lutemon implements MagicType {
         super(id, name, level, xp, hp, maxHp, description);
     }
 
+    // Overrites the magic type methods
     @Override
     public void voidGrasp() {
         Attack voidGraspAttack = new Attack("Void Grasp", 5, 0.7, 0.2, 1.5);

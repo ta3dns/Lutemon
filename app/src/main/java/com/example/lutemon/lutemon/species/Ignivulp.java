@@ -9,6 +9,8 @@ public class Ignivulp extends Lutemon implements FireType {
         super(id, name, level, xp, hp, maxHp, description);
     }
 
+    // Overrites the fire type methods
+
     @Override
     public void fireWall() {
         Attack fireWallAttack = new Attack("Fire Wall", 5, 0.7, 0.2, 1.5);

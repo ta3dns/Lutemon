@@ -12,4 +12,6 @@ public interface FireType {
     void inferno();
     void fireBlast();
 
+    // Interface methods for each attack
+
 }

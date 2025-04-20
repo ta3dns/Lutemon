@@ -36,6 +36,8 @@ public class Tux extends Lutemon implements WaterType, IceType {
         }
     }
 
+    // Overrites for Ice and Water Type Methods
+
     @Override
     public void frostByte() {
         Attack frostByteAttack = new Attack("Frost Byte", 4, 0.8, 0.3, 1.5);
@@ -56,7 +58,6 @@ public class Tux extends Lutemon implements WaterType, IceType {
     }
 
     public void makeAttacks() {
-        System.out.println("Echo Not Created!!!");
         frostByte();
         frostByte();
         aquaJet();

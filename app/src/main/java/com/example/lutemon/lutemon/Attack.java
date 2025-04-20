@@ -55,13 +55,17 @@ public class Attack implements Serializable {
         this.levelMultiplier = levelMultiplier;
     }
 
+    // Calculate the Damage of the attack
     public int calculateDamage(Lutemon attacker) {
 
+        //Damage is calculated as follows:
+            // Base Damage + (Level Multiplier) + (Random Multiplier)
 
         double randomMultiplier = -0.15 + (Math.random() * 0.3);
         double levelDamage = attacker.getLevel()*levelMultiplier;
         double damage = (baseDamage + levelDamage) * (1 + randomMultiplier);
 
+        // there is a chance of critical hit and the damage is multiplied by 1.5.
         if (Math.random() < criticalChance) {
             damage *= 1.5;
         }
@@ -69,6 +73,7 @@ public class Attack implements Serializable {
         return (int)damage;
     }
 
+    // there is a chance of missed attack.
     public boolean isMissed(Lutemon attacker){
         return Math.random() > accuracy;
     }

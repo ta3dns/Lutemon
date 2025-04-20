@@ -6,4 +6,6 @@ public interface WaterType {
     public void aquaJet();
     public void hydroPump();
 
+    // Interface methods for each attack
+
 }

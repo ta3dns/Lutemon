@@ -7,4 +7,6 @@ public interface SteelType {
 
     void steelFortress();
 
+    // Interface methods for each attack
+
 }

@@ -9,4 +9,6 @@ public interface MagicType {
     void realityFracture();
     void cognitiveCollapse();
 
+    // Interface methods for each attack
+
 }

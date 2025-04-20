@@ -16,6 +16,7 @@ public class Celestyne extends Lutemon implements AirType {
         super(id, name, level, xp, hp, maxHp, description);
     }
 
+    // Overrites the air type methods
     @Override
     public void aeroStrike() {
         Attack aeroStrikeAttack = new Attack("Aero Strike", 5, 0.7, 0.2, 1.5);

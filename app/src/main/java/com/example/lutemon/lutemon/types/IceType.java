@@ -8,5 +8,7 @@ public interface IceType {
     void echo(Lutemon target);
     void frostByte();
 
+    // Interface methods for each attack
+
 
 }
